@@ -21,24 +21,26 @@ import sys
 # URL can be modified accordingly to get all the data
 
 def retrieve_html ():
-    for year in range (2012, 2022):
+    for year in range (2013, 2019):
+        print (f"Collecting data for {year}")
         for month in range (1,13):
             if (month < 10):
-                url = (f'https://en.tutiempo.net/climate/0{month}-{year}/ws-39240.html')
+                url = (f'https://en.tutiempo.net/climate/0{month}-{year}/ws-421820.html')
 
             else:
-                url= (f'https://en.tutiempo.net/climate/{month}-{year}/ws-39240.html')
+                url= (f'https://en.tutiempo.net/climate/{month}-{year}/ws-421820.html')
      
             texts = requests.get(url)
             text_utf = texts.text.encode('utf=8')
 
             if not os.path.exists(f'Data/Html_Data/{year}'):
-                print (f"Collecting data for {year}")
                 os.makedirs(f'Data/Html_Data/{year}')
             with open(f'Data/Html_Data/{year}/{month}.html', "wb") as output:
                 output.write(text_utf)
         
         sys.stdout.flush()
+
+
 
 
 if __name__ == '__main__':
