@@ -1,0 +1,30 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Air Quality Index</h1>
+<p>Please enter the below details.</p>
+
+<form action="{{ url_for('predict')}}" method = "POST">
+    <p>Average Temperature (°C) <input type = "text" name = "T" /></p>
+    <p>Maximum temperature (°C) <input type = "text" name = "TM" /></p>
+    <p>Minimum temperature (°C) <input type = "text" name = "Tm" /></p>
+    <p>Atmospheric pressure at sea level (hPa) <input type = "text" name = "SLP" /></p>
+    <p>Average relative humidity (%) <input type = "text" name = "H" /></p>
+    <p>Average visibility (Km) <input type = "text" name = "VV" /></p>
+    <p>Average wind speed (Km/h) <input type = "text" name = "V" /></p>
+    <p>Maximum sustained wind speed (Km/h) <input type = "text" name = "VM" /></p>
+    <p><input type = "submit" value = "predict" /></p>
+</form>
+
+
+</body>
+</html>
+
+
+
+
+
