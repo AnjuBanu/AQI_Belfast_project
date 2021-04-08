@@ -1,4 +1,4 @@
-from flask import Flask,render_template,url_for,request
+from flask import Flask,render_template,request
 import pandas as pd
 import pickle
 
@@ -15,8 +15,11 @@ def predict():
     data_list =[]
     column = ['T','TM','Tm','SLP','H','VV','V','VM']
     for val in column:
-        print (val)
-        data_list.append(request.form[val])
+        print (request.form[val])
+        if request.form[val] == "":
+            return render_template('home.html')
+        else:
+            data_list.append(request.form[val])
 
     data = pd.DataFrame([data_list], columns = column)
     
@@ -24,12 +27,20 @@ def predict():
     
     print (predicted_result)
     
-    if predicted_result < 12 :
-        return render_template('good.html')
-    elif predicted_result < 35.4 :
-        return render_template('moderate.html')
+    if predicted_result < 50 :
+        return render_template('good.html', result = predicted_result)
+    elif predicted_result < 100 :
+        return render_template('moderate.html', result = predicted_result)
+    elif predicted_result < 150 :
+        return render_template('unhealthy_sensitive.html', result = predicted_result)
+    elif predicted_result < 200 :
+        return render_template('unhealthy.html', result = predicted_result)
+    elif predicted_result < 200 :
+        return render_template('very_unhealthy.html', result = predicted_result)
     else:
-        return render_template('unhealthy.html')
+        return render_template('hazardous.html', result = predicted_result)
+
+
 
 
 

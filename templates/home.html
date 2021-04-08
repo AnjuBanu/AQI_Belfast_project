@@ -3,10 +3,19 @@
 
 <!DOCTYPE html>
 <html>
+<head>
+
+
+ <div style="background-image: url({{ url_for('static', filename='header.gif') }});
+  background-size: 700px 180px; background-repeat: no-repeat; height:180px; padding-top:8px;">
+ </div>
+  
+
+</head>
 <body>
 
-<h1>Air Quality Index</h1>
-<p>Please enter the below details.</p>
+<hr style="width:100%;text-align:left;margin-left:0">
+<h2>Enter below details to predict the Air Quality Index</h2>
 
 <form action="{{ url_for('predict')}}" method = "POST">
     <p>Average Temperature (°C) <input type = "text" name = "T" /></p>
@@ -17,7 +26,7 @@
     <p>Average visibility (Km) <input type = "text" name = "VV" /></p>
     <p>Average wind speed (Km/h) <input type = "text" name = "V" /></p>
     <p>Maximum sustained wind speed (Km/h) <input type = "text" name = "VM" /></p>
-    <p><input type = "submit" value = "predict" /></p>
+    <p><input type = "submit" value = "PREDICT AQI" /></p>
 </form>
 
 
