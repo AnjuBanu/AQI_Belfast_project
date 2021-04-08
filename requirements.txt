@@ -1,4 +1,4 @@
-cython==0.29.15
+Cython>=0.29.13
 Flask==1.1.1
 gunicorn==20.1.0
 itsdangerous==1.1.0
