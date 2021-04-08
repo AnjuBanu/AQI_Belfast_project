@@ -4,7 +4,7 @@ itsdangerous==1.1.0
 Jinja2==2.10.1
 MarkupSafe==1.1.1
 Werkzeug==0.15.5
-NumPy>= 1.8.2
+numpy>=1.8.2
 scipy>=0.15.1
 scikit-learn==0.20.1
 matplotlib>=1.4.3
